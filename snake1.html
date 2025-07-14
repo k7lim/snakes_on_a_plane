@@ -11,6 +11,7 @@
 <body>
   <h1>Snake 1 - Classic Game</h1>
   <canvas id="game" width="400" height="400"></canvas>
+  <div id="score" style="text-align:center;">Score: 0</div>
   <script>
     const canvas = document.getElementById('game');
     const ctx = canvas.getContext('2d');
@@ -20,6 +21,14 @@
     let apple = {x: 320, y: 320};
     let dx = grid;
     let dy = 0;
+
+    let score = 0;
+    let highScore = 0;
+    const scoreDiv = document.getElementById("score");
+    function updateScore() {
+      scoreDiv.textContent = "Score: " + score + " | High Score: " + highScore;
+    }
+    updateScore();
 
     document.addEventListener('keydown', function(e) {
       if (e.which === 37 && dx === 0) { dx = -grid; dy = 0; }
@@ -53,11 +62,17 @@
         ctx.fillRect(cell.x, cell.y, grid-1, grid-1);
         if (cell.x === apple.x && cell.y === apple.y) {
           snake.maxCells++;
+          score++;
+          if (score > highScore) highScore = score;
+          updateScore();
           apple.x = Math.floor(Math.random()*20)*grid;
           apple.y = Math.floor(Math.random()*20)*grid;
         }
         for (let i=index+1; i<snake.cells.length; i++) {
           if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+            highScore = Math.max(highScore, score);
+            score = 0;
+            updateScore();
             snake.x = 160; snake.y = 160; snake.cells = []; snake.maxCells = 4; dx = grid; dy = 0;
           }
         }
