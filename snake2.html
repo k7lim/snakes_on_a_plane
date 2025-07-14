@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Snake 2 - Gangster Chat</title>
+  <title>Angels with Filthy Souls - Chat</title>
   <style>
-    body { font-family: "Courier New", monospace; }
-    #log { border: 1px solid #000; padding: 10px; height: 200px; overflow-y: auto; }
-    #input { width: 100%; }
+    body {
+      font-family: "Courier New", monospace;
+      background-color: #000;
+      color: #fff;
+    }
+    #log {
+      border: 1px solid #fff;
+      padding: 10px;
+      height: 200px;
+      overflow-y: auto;
+      background-color: #111;
+    }
+    #input {
+      width: 100%;
+      background-color: #222;
+      color: #fff;
+      border: 1px solid #555;
+    }
+    button {
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 5px 10px;
+    }
+    h1 {
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 0 #444;
+    }
   </style>
 </head>
 <body>
-  <h1>Snake 2 - Gangster Chat</h1>
+  <h1>Angels with Filthy Souls</h1>
   <div id="log"></div>
-  <input id="input" type="text" placeholder="Say something...">
+  <input id="input" type="text" placeholder="Speak, Snakes...">
   <button onclick="send()">Send</button>
   <script>
     const log = document.getElementById('log');
     const input = document.getElementById('input');
+    const btn = document.querySelector('button');
     let messages = 0;
     function add(text) {
       const p = document.createElement('div');
@@ -25,13 +52,19 @@
     }
     function send() {
       if (!input.value) return;
-      add('You: ' + input.value);
+      add('Snakes: ' + input.value);
       messages++;
       if (messages == 1) {
-        add('Johnny: Yeah?');
+        add("Johnny: Leave it on the doorstep and get the hell outta here.");
       } else if (messages == 2) {
-        add('Johnny: Alright, I\'m gonna give you to the count of ten...');
-        add('Johnny: to get your ugly, yellow, no-good kiester off my property!');
+        add("Johnny: What money?");
+      } else if (messages == 3) {
+        add("Johnny: Is that a fact? How much do I owe ya?");
+      } else if (messages == 4) {
+        add("Johnny: Too bad Acey ain't in charge no more.");
+      } else if (messages == 5) {
+        add("Johnny: He's upstairs takin' a bath. He'll call you when he gets out.");
+        add("Johnny: Hey. I tell you what I'm gonna give you, Snakes. I'm gonna give you to the count of ten...to get your ugly, yella, no-good keister off my property...before I pump your guts full of lead.");
         setTimeout(() => countdown(), 1000);
       }
       input.value = '';
@@ -40,13 +73,17 @@
       add('Johnny: One...');
       setTimeout(() => { add('Johnny: Two...'); }, 1000);
       setTimeout(() => { add('Johnny: Ten!'); }, 2000);
-      setTimeout(() => { 
+      setTimeout(() => {
         add('*BANG BANG BANG*');
-        add('Johnny: Keep the change, you filthy animal!');
-        input.disabled = true;
-        document.querySelector('button').disabled = true;
-      }, 3000);
+        setTimeout(() => {
+          add('Johnny: Keep the change, you filthy animal.');
+          input.disabled = true;
+          btn.disabled = true;
+        }, 5000);
+      }, 2500);
     }
+    // Johnny starts the conversation
+    add('Johnny: Who is it?');
   </script>
 </body>
 </html>
