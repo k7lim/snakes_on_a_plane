@@ -1,21 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Snake 3 - ASCII Art</title>
+  <title>Snake 3 - Snake Jailbird</title>
   <style>
-    body { font-family: monospace; white-space: pre; background:#fff; }
-    pre { text-align: center; font-size: 16px; }
+    body { 
+      font-family: "Comic Sans MS", cursive; 
+      background: linear-gradient(45deg, #87CEEB, #FFE4B5);
+      text-align: center;
+      padding: 20px;
+    }
+    .snake-container {
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .snake-ascii {
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.2;
+      color: #8B4513;
+    }
+    .quote {
+      font-size: 18px;
+      color: #FF6347;
+      margin: 20px 0;
+      font-style: italic;
+    }
+    .controls {
+      margin: 20px 0;
+    }
+    button {
+      background: #FFD700;
+      border: 2px solid #FFA500;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover {
+      background: #FFA500;
+    }
   </style>
 </head>
 <body>
-  <h1>Snake 3 - Simpsons Snake</h1>
-<pre>
-     ____
-   _(____)_
-  /        \
- |  SNAKE   |
-  \__..__/
-     /  \\
-</pre>
+  <div class="snake-container">
+    <h1>🐍 Snake Jailbird 🚗</h1>
+    
+    <div class="snake-ascii">
+       ╭─────────╮
+      │  ∩   ∩   │  ← Long Auburn Hair
+      │  ○   ○   │
+      │     ∪     │
+      │  \─────/  │
+       ╰─────────╯
+          │ │ │
+          │🚬│    ← Cigarette
+       ╭──┴─┴─┴──╮
+      │  ████████  │ ← Vest
+      │    🐍      │ ← Snake Tattoo
+       ╰─────────╯
+    </div>
+
+    <div class="quote" id="quote">
+      "Dude, this is totally bogus!"
+    </div>
+
+    <div class="controls">
+      <button onclick="newQuote()">Get Snake Quote</button>
+      <button onclick="escape()">Help Snake Escape!</button>
+    </div>
+
+    <div id="status"></div>
+  </div>
+
+  <script>
+    const quotes = [
+      "Dude, this is totally bogus!",
+      "See ya, cops!",
+      "Bye!",
+      "Hoa! Fast cars and fast women, dude!",
+      "This is like, totally unfair, man!",
+      "Whatever, dude. I'll be back.",
+      "Lil' Bandit and me are outta here!",
+      "Don't harsh my mellow, man!"
+    ];
+
+    function newQuote() {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById('quote').textContent = `"${randomQuote}"`;
+    }
+
+    function escape() {
+      const status = document.getElementById('status');
+      status.innerHTML = "🚗💨 Snake drives off in his 1968 Pontiac Firebird...<br><em>*Screeching tires*</em>";
+      setTimeout(() => {
+        status.innerHTML = "👮‍♂️ Chief Wiggum: 'Aw, he got away again!'";
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
