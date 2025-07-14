@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snake 6 - Snake Eyes</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    #result { margin-top: 20px; }
+  </style>
+</head>
+<body>
+<h1>Snake 6 - Snake Eyes</h1>
+<button onclick="roll()">Roll Dice</button>
+<div id="result"></div>
+<pre id="image" style="display:none;">
+   _______
+  /       \
+ | Sammy  |
+ | Paradise|
+  \_______/
+</pre>
+<script>
+  function roll() {
+    let tries = 0;
+    let d1,d2;
+    do {
+      d1 = Math.floor(Math.random()*6)+1;
+      d2 = Math.floor(Math.random()*6)+1;
+      tries++;
+    } while(!(d1==1 && d2==1));
+    const text = tries>1 ? 'Laaady Luck!' : '';
+    document.getElementById('result').textContent = text + ' You rolled ' + d1 + ' and ' + d2 + ' after ' + tries + ' tries.';
+    if (d1==1 && d2==1) {
+      document.getElementById('result').textContent = "ohhhh nooo I'm ruined";
+      document.getElementById('image').style.display='block';
+    }
+  }
+</script>
+</body>
+</html>

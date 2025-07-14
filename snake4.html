@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snake 4 - Samuel L Jackson Generator</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+  </style>
+</head>
+<body>
+  <h1>Snake 4 - Samuel L Jackson Generator</h1>
+  <input id="words" type="text" placeholder="Type your line...">
+  <button onclick="makePhrase()">Go</button>
+  <p id="result"></p>
+  <script>
+    function makePhrase() {
+      const words = document.getElementById('words').value;
+      const result = "Say '" + words + "' again, I dare you!";
+      document.getElementById('result').textContent = result;
+    }
+  </script>
+</body>
+</html>

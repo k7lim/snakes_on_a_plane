@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snake 2 - Gangster Chat</title>
+  <style>
+    body { font-family: "Courier New", monospace; }
+    #log { border: 1px solid #000; padding: 10px; height: 200px; overflow-y: auto; }
+    #input { width: 100%; }
+  </style>
+</head>
+<body>
+  <h1>Snake 2 - Gangster Chat</h1>
+  <div id="log"></div>
+  <input id="input" type="text" placeholder="Say something...">
+  <button onclick="send()">Send</button>
+  <script>
+    const log = document.getElementById('log');
+    const input = document.getElementById('input');
+    let messages = 0;
+    function add(text) {
+      const p = document.createElement('div');
+      p.textContent = text;
+      log.appendChild(p);
+      log.scrollTop = log.scrollHeight;
+    }
+    function send() {
+      if (!input.value) return;
+      add('You: ' + input.value);
+      messages++;
+      if (messages == 1) {
+        add('Johnny: Yeah?');
+      } else if (messages == 2) {
+        add('Johnny: Alright, I\'m gonna give you to the count of ten...');
+        add('Johnny: to get your ugly, yellow, no-good kiester off my property!');
+        setTimeout(() => countdown(), 1000);
+      }
+      input.value = '';
+    }
+    function countdown() {
+      add('Johnny: One...');
+      setTimeout(() => { add('Johnny: Two...'); }, 1000);
+      setTimeout(() => { add('Johnny: Ten!'); }, 2000);
+      setTimeout(() => { 
+        add('*BANG BANG BANG*');
+        add('Johnny: Keep the change, you filthy animal!');
+        input.disabled = true;
+        document.querySelector('button').disabled = true;
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
