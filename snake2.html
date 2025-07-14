@@ -28,17 +28,24 @@
       add('You: ' + input.value);
       messages++;
       if (messages == 1) {
-        add('Snake: Yeah, keep talkin\' tough guy...');
+        add('Johnny: Yeah?');
       } else if (messages == 2) {
-        add('Snake: Alright, time\'s up!');
-        countdown();
+        add('Johnny: Alright, I\'m gonna give you to the count of ten...');
+        add('Johnny: to get your ugly, yellow, no-good kiester off my property!');
+        setTimeout(() => countdown(), 1000);
       }
       input.value = '';
     }
     function countdown() {
-      add('1...');
-      setTimeout(() => { add('2...'); }, 1000);
-      setTimeout(() => { add('TEN! RATATATA! HAHAHAHA!'); }, 2000);
+      add('Johnny: One...');
+      setTimeout(() => { add('Johnny: Two...'); }, 1000);
+      setTimeout(() => { add('Johnny: Ten!'); }, 2000);
+      setTimeout(() => { 
+        add('*BANG BANG BANG*');
+        add('Johnny: Keep the change, you filthy animal!');
+        input.disabled = true;
+        document.querySelector('button').disabled = true;
+      }, 3000);
     }
   </script>
 </body>
