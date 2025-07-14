@@ -51,18 +51,65 @@
     <h1>🐍 Snake Jailbird 🚗</h1>
     
     <div class="snake-ascii">
-       ╭─────────╮
-      │  ∩   ∩   │  ← Long Auburn Hair
-      │  ○   ○   │
-      │     ∪     │
-      │  \─────/  │
-       ╰─────────╯
-          │ │ │
-          │🚬│    ← Cigarette
-       ╭──┴─┴─┴──╮
-      │  ████████  │ ← Vest
-      │    🐍      │ ← Snake Tattoo
-       ╰─────────╯
+      <svg width="300" height="400" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+        <!-- Auburn Hair -->
+        <ellipse cx="150" cy="80" rx="60" ry="40" fill="#B87333" stroke="#8B4513" stroke-width="2"/>
+        <path d="M 90 60 Q 70 40 80 20 Q 90 30 100 50" fill="#B87333"/>
+        <path d="M 210 60 Q 230 40 220 20 Q 210 30 200 50" fill="#B87333"/>
+        <path d="M 130 40 Q 120 20 140 15 Q 150 25 145 45" fill="#B87333"/>
+        <path d="M 170 40 Q 180 20 160 15 Q 150 25 155 45" fill="#B87333"/>
+        
+        <!-- Face -->
+        <ellipse cx="150" cy="100" rx="45" ry="50" fill="#FFD700" stroke="#000" stroke-width="2"/>
+        
+        <!-- Eyes -->
+        <circle cx="135" cy="90" r="8" fill="white"/>
+        <circle cx="165" cy="90" r="8" fill="white"/>
+        <circle cx="135" cy="90" r="4" fill="black"/>
+        <circle cx="165" cy="90" r="4" fill="black"/>
+        
+        <!-- Nose -->
+        <ellipse cx="150" cy="105" rx="3" ry="6" fill="#E6C200"/>
+        
+        <!-- Mouth -->
+        <path d="M 140 120 Q 150 130 160 120" stroke="black" stroke-width="2" fill="none"/>
+        
+        <!-- Neck -->
+        <rect x="140" y="150" width="20" height="30" fill="#FFD700"/>
+        
+        <!-- Vest -->
+        <path d="M 120 180 L 180 180 L 190 220 L 200 280 L 190 320 L 110 320 L 100 280 L 110 220 Z" fill="#4B0082" stroke="#000" stroke-width="2"/>
+        
+        <!-- Vest inner -->
+        <rect x="130" y="190" width="40" height="80" fill="#8B4513"/>
+        
+        <!-- Snake Tattoo on arm -->
+        <circle cx="220" cy="240" r="25" fill="#FFD700"/>
+        <path d="M 210 230 Q 220 240 230 250 Q 225 255 215 250 Q 210 245 210 240 Q 215 235 220 240 Q 225 245 230 240" stroke="#228B22" stroke-width="3" fill="none"/>
+        <circle cx="225" cy="235" r="2" fill="#228B22"/>
+        
+        <!-- Cigarette pack in sleeve -->
+        <rect x="200" y="220" width="15" height="8" fill="white" stroke="red" stroke-width="1"/>
+        <text x="207" y="226" font-family="Arial" font-size="6" fill="red" text-anchor="middle">🚬</text>
+        
+        <!-- Arms -->
+        <ellipse cx="90" cy="240" rx="15" ry="60" fill="#FFD700"/>
+        <ellipse cx="220" cy="240" rx="15" ry="60" fill="#FFD700"/>
+        
+        <!-- Legs -->
+        <rect x="130" y="320" width="15" height="60" fill="#4169E1"/>
+        <rect x="155" y="320" width="15" height="60" fill="#4169E1"/>
+        
+        <!-- Shoes -->
+        <ellipse cx="137" cy="385" rx="12" ry="8" fill="black"/>
+        <ellipse cx="162" cy="385" rx="12" ry="8" fill="black"/>
+        
+        <!-- Labels -->
+        <text x="50" y="50" font-family="Arial" font-size="12" fill="#8B4513">← Auburn Hair</text>
+        <text x="250" y="225" font-family="Arial" font-size="12" fill="#8B4513">← Cigarette Pack</text>
+        <text x="250" y="250" font-family="Arial" font-size="12" fill="#8B4513">← Snake Tattoo</text>
+        <text x="50" y="200" font-family="Arial" font-size="12" fill="#8B4513">← Vest</text>
+      </svg>
     </div>
 
     <div class="quote" id="quote">
