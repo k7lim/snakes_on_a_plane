@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snake 2 - Gangster Chat</title>
+  <style>
+    body { font-family: "Courier New", monospace; }
+    #log { border: 1px solid #000; padding: 10px; height: 200px; overflow-y: auto; }
+    #input { width: 100%; }
+  </style>
+</head>
+<body>
+  <h1>Snake 2 - Gangster Chat</h1>
+  <div id="log"></div>
+  <input id="input" type="text" placeholder="Say something...">
+  <button onclick="send()">Send</button>
+  <script>
+    const log = document.getElementById('log');
+    const input = document.getElementById('input');
+    let messages = 0;
+    function add(text) {
+      const p = document.createElement('div');
+      p.textContent = text;
+      log.appendChild(p);
+      log.scrollTop = log.scrollHeight;
+    }
+    function send() {
+      if (!input.value) return;
+      add('You: ' + input.value);
+      messages++;
+      if (messages == 1) {
+        add('Snake: Yeah, keep talkin\' tough guy...');
+      } else if (messages == 2) {
+        add('Snake: Alright, time\'s up!');
+        countdown();
+      }
+      input.value = '';
+    }
+    function countdown() {
+      add('1...');
+      setTimeout(() => { add('2...'); }, 1000);
+      setTimeout(() => { add('TEN! RATATATA! HAHAHAHA!'); }, 2000);
+    }
+  </script>
+</body>
+</html>
