@@ -5,11 +5,13 @@
   <style>
     body { font-family: Arial, sans-serif; text-align: center; }
     #result { margin-top: 20px; }
+    #dice { font-size: 40px; margin-top: 15px; }
   </style>
 </head>
 <body>
 <h1>Snake 6 - Snake Eyes</h1>
 <button onclick="roll()">Roll Dice</button>
+<div id="dice"></div>
 <div id="result"></div>
 <pre id="image" style="display:none;">
    _______
@@ -21,17 +23,21 @@
 <script>
   function roll() {
     let tries = 0;
-    let d1,d2;
+    let d1, d2;
     do {
-      d1 = Math.floor(Math.random()*6)+1;
-      d2 = Math.floor(Math.random()*6)+1;
+      d1 = Math.floor(Math.random() * 6) + 1;
+      d2 = Math.floor(Math.random() * 6) + 1;
       tries++;
-    } while(!(d1==1 && d2==1));
-    const text = tries>1 ? 'Laaady Luck!' : '';
+    } while (!(d1 == 1 && d2 == 1));
+    const text = tries > 1 ? 'Laaady Luck!' : '';
+    const faces = ['\u2680','\u2681','\u2682','\u2683','\u2684','\u2685'];
+    document.getElementById('dice').textContent = faces[d1 - 1] + ' ' + faces[d2 - 1];
     document.getElementById('result').textContent = text + ' You rolled ' + d1 + ' and ' + d2 + ' after ' + tries + ' tries.';
-    if (d1==1 && d2==1) {
+    if (d1 == 1 && d2 == 1) {
       document.getElementById('result').textContent = "ohhhh nooo I'm ruined";
-      document.getElementById('image').style.display='block';
+      document.getElementById('image').style.display = 'block';
+    } else {
+      document.getElementById('image').style.display = 'none';
     }
   }
 </script>
