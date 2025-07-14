@@ -23,11 +23,22 @@
       font-size: 20px;
       line-height: 2em;
     }
+    .blog-post {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .timestamp {
+      color: #666;
+      font-style: italic;
+      font-size: 12px;
+    }
   </style>
 </head>
 <body>
   <h1>Snakes on a Plane</h1>
-  <p>I had 20 free minutes on a AA flight.</p>
   <div class="links">
     <a href="snake1.html">Snake</a><br>
     <a href="snake2.html">Snake</a><br>
@@ -35,6 +46,13 @@
     <a href="snake4.html">Snake</a><br>
     <a href="snake5.html">Snake</a><br>
     <a href="snake6.html">Snake</a><br>
+  </div>
+  
+  <div class="blog-post">
+    <div class="timestamp">July 14, 2025</div>
+    <p>I had 20 free minutes on a AA flight. Well, I got a huge adrenaline and dopamine rush from the 20-min Kiefer-Sutherland-in-24 pressure, and the pure silliness and the decent output of codex, that I decided to use AI to help me get some wifi 1ups to keep my vibecode addiction going.</p>
+    <p><strong>Steps:</strong> forget airline network, turn wifi off/on, magic incantation, fresh session</p>
+    <p><strong>tl;dr</strong> <code>sudo ifconfig en0 ether $(openssl rand -hex 6 | sed 's/\(..\)/\1:/g;s/.$//')</code></p>
   </div>
 </body>
 </html>
